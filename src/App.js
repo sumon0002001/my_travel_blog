@@ -10,7 +10,7 @@ import Profile from "./pages/Profile";
 
 const App = () => {
   return (
-    <div>
+    <UserContextProvider>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/edit/:id" element={<EditPost />} />
         <Route path="/profile/:id" element={<Profile />} />
       </Routes>
-    </div>
+    </UserContextProvider>
   );
 };
 
