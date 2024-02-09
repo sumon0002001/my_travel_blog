@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { FaBars } from "react-icons/fa";
 import Menu from "./Menu";
-import { UserContext } from "../context/UserContext";
+// import { UserContext } from "../context/UserContext";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
@@ -11,9 +11,9 @@ const Navbar = () => {
   const showMenu = () => {
     setMenu(!menu);
   };
-
-  const { user } = useContext(UserContext);
-  console.log(user);
+  const user = false;
+  // const { user } = useContext(UserContext);
+  // console.log(user);
   return (
     <div className="flex items-center justify-between px-6 md:px-[200px] py-4">
       <h1 className="text-lg md:text-xl font-extrabold">
