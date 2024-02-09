@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 const Menu = () => {
-  const user = false;
+  const { user } = useContext(UserContext);
   return (
     <div className="bg-black w-[200px] z-10 flex flex-col items-start absolute top-12 right-6 md:right-32 rounded-md p-4 space-y-4">
       {!user && (

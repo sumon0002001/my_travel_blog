@@ -44,4 +44,28 @@ router.post("/login", async (req, res) => {
   }
 });
 
+//logout
+router.post("/logout", async (req, res) => {
+  try {
+    res.clearCookie(
+      "jwt",
+      { sameSite: "none", secure: true }
+        .status(200)
+        .send("User logged out successfully!")
+    );
+  } catch (err) {
+    res.status(500).send("Error logging out user!");
+  }
+});
+
+router.get("/refetch", (req, res) => {
+  const token = req.cookies.token;
+  jwt.verify(token, process.env.JWT_SECRET, {}, (err, user) => {
+    if (err) {
+      return res.status(404).json("user not found");
+    }
+    res.status(200).json(user);
+  });
+});
+
 module.exports = router;
